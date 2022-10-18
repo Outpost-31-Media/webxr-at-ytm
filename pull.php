@@ -1,0 +1,1 @@
+<?php if ( $_POST['payload'] ) {   shell_exec('cd ~/public_html/ytm && git pull origin main');}
