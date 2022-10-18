@@ -34,7 +34,6 @@ select {
 }
 
 .overlayText {
-    /*position: absolute;*/
     top: 50px;
     bottom: 50px;
     width: 100%;
@@ -54,9 +53,7 @@ select {
 }
 
 .gui-button {
-	display: inline-block;
     position: absolute;
-
     padding-top: 6px;
     padding-right: 6px;
     padding-bottom: 6px;
@@ -67,13 +64,11 @@ select {
     color: rgb(255, 255, 255);
     font: 13px sans-serif;
     text-align: center;
-    vertical-align: top;
     opacity: 0.5;
     outline: none;
     z-index: 999;
     cursor: pointer;
-    /*width: auto;*/
-
+    width: 25%;
     user-select: none;
     /* supported by Chrome and Opera */
     -webkit-user-select: none;
@@ -123,8 +118,8 @@ select {
     top: 0;
     bottom: 0;
     position: absolute;
-    background: linear-gradient(124deg,#F28705, #042940,#042940,#9FC131);
-    background-size: 400% 400%;
+    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background-size: 1800% 1800%;
 
     -webkit-animation: rainbow 18s ease infinite;
     -z-animation: rainbow 18s ease infinite;
@@ -189,6 +184,15 @@ select {
 }
 
 button {
+    position: fixed;
+    height: 4vh;
+    width: 14vh;
+    border: solid 2px;
+    border-color: black;
+    background-color: transparent;
+    color: black;
+    z-index: 10;
+
     /* Makes the text unzoomable and unselectable */
     touch-action: manipulation;
     -webkit-touch-callout: none;
@@ -203,37 +207,24 @@ button:active {
     /* Button background color changes to grey when held */
     background-color: rgb(212, 212, 212);
 }
-#ultra {
-    bottom: 11vh;
-        margin: 5%;
-    width: 90%;
-    /*left: 37.5%;*/
-    display: block;
-    user-select: none;
-    /*font-size: 50px;*/
-}
-#high {
-    bottom: 6vh;
-        margin: 5%;
-    width: 90%;
-    /*left: 37.5%;*/
-    display: block;
+
+#up {
+    bottom: 18vh;
+    left: 37.5%;
+    display: none;
     user-select: none;
     /*font-size: 50px;*/
 }
 
-#low {
-    bottom: 1vh;
-        margin: 5%;
-    width: 90%;
-    /*left: 37.5%;*/
-    display: block;
+#down {
+    bottom: 8vh;
+    left: 37.5%;
+    display: none;
     user-select: none;
     /*font-size: 50px;*/
 }
 
 #left {
-	position: absolute;
     bottom: 13vh;
     left: 6.25%;
     display: none;
@@ -242,7 +233,6 @@ button:active {
 }
 
 #right {
-	position: absolute;
     bottom: 13vh;
     right: 6.25%;
     display: none;
@@ -250,20 +240,35 @@ button:active {
 /*    font-size: 50px;*/
 }
 
+#start {
+    bottom: 8vh;
+    right: 37.5%;
+    display: none;
+    user-select: none;
+/*    font-size: 50px;*/
+}
+
+#load {
+    bottom: 8vh;
+    right: 37.5%;
+    user-select: none;
+/*    font-size: 50px;*/
+}
+
 #myProgress {
-	display: none;
-	position: absolute;
-	left:  10%;
-  	width: 80%;
-  	background-color: grey;
-  	border: 1px solid rgb(255, 255, 255);
+    display: none;
+    position: absolute;
+    left:  10%;
+    width: 80%;
+    background-color: grey;
+    border: 1px solid rgb(255, 255, 255);
     border-radius: 4px;
     background: rgba(0, 0, 0, 0.1);
-  	z-index: 999;
+    z-index: 999;
 }
 
 #myBar {
-	display: none;
+    display: none;
   width: 1%;
   height: 30px;
   background-color: white;
@@ -291,63 +296,6 @@ div {
     z-index: 100;
     display: block;
 }
-
-
-.throttleContainer {
-    z-index: 999;
-    position: absolute;
-    right:  5%;
-    bottom: 23vh;
-    padding: 0 5px;
-    height: 25px;
-    width: 150px;
-}
-
-
-
-.slider
-{
-
-    writing-mode: bt-lr; /* IE */
-    -webkit-appearance: none; /* Chromium */
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.1);
-    border: 1px solid rgb(255, 255, 255);
-    border-radius: 4px;
-    
-    -webkit-transform:rotate(270deg);
-
-}
-
-.slider::-moz-range-track {
-    
-  width: 25px;
-  height: 25%;
-  background-color: rgba(0, 0, 0, 0.1);
-  border: 1px solid rgb(255, 255, 255);
-  border-radius: 4px;
-}
-
-
-.slider::-webkit-slider-thumb {
-  -webkit-appearance: none; 
-  appearance: none;
-  width: 25px; 
-  height: 25px; 
-  background: rgb(255, 255, 255);
-  opacity: 0.5;  
-  cursor: pointer; 
-}
-
-.slider::-moz-range-thumb {
-  width: 25px; 
-  height: 25px; 
-  background: rgb(255, 255, 255);
-  opacity: 0.5;  
-  cursor: pointer; 
-}
-
 progress {
     z-index: 999;
     position: absolute;
@@ -366,4 +314,47 @@ progress {
     user-select: none;
 
     -webkit-transform:rotate(270deg);
+}
+
+#low {
+    bottom: 1vh;
+        margin: 5%;
+    width: 90%;
+    /*left: 37.5%;*/
+    display: block;
+    user-select: none;
+    /*font-size: 50px;*/
+}
+
+.gui-button-2 {
+    display: inline-block;
+    position: absolute;
+
+    padding-top: 6px;
+    padding-right: 6px;
+    padding-bottom: 6px;
+    padding-left: 6px;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.1);
+    color: rgb(255, 255, 255);
+    font: 13px sans-serif;
+    text-align: center;
+    vertical-align: top;
+    opacity: 0.5;
+    outline: none;
+    z-index: 999;
+    cursor: pointer;
+    /*width: auto;*/
+
+    user-select: none;
+    /* supported by Chrome and Opera */
+    -webkit-user-select: none;
+    /* Safari */
+    -khtml-user-select: none;
+    /* Konqueror HTML */
+    -moz-user-select: none;
+    /* Firefox */
+    -ms-user-select: none;
+    /* Internet Explorer/Edge */
 }
