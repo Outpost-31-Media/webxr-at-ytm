@@ -462,6 +462,10 @@ function loadModel() {
             model.visible = false;
             smallerScene.add(model);
             modelLoaderCallback();
+            document.body.appendChild(arButton);
+            arButton.classList.add("ytmStartButton");
+            document.querySelector("#myBar").style.display = "none";
+            document.querySelector("#myProgress").style.display = "none";
             console.log('successfully loaded ' + modelUrl);
         },
         function(xhr) {
@@ -471,10 +475,8 @@ function loadModel() {
             progressBar.style.width = (xhr.loaded / xhr.total * 100)+ "%";
             progressBar.innerHTML = (Math.round(xhr.loaded / xhr.total * 100)) + "% 3/3";
             if ((xhr.loaded / xhr.total * 100) === 100) {
-                document.querySelector("#myBar").style.display = "none";
-                document.querySelector("#myProgress").style.display = "none";
-                document.body.appendChild(arButton);
-                arButton.classList.add("ytmStartButton");
+
+                progressBar.innerHTML = "Getting things ready";
 
             }
         },
