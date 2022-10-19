@@ -139,6 +139,7 @@ function init() {
     });
     arButton.addEventListener("click", () => {
       if (!xrSessionStarted) {
+        arButton.classList.remove("ytmStartButton");
         document.getElementById("welcome").style.display = 'none';
         xrSessionStarted = true;
       } else if (xrSessionStarted) {
@@ -241,6 +242,7 @@ async function loadModels(lod) {
                 document.querySelector("#myBar").style.display = "none";
                 document.querySelector("#myProgress").style.display = "none";
                 document.body.appendChild(arButton);
+                arButton.classList.add("ytmStartButton");
 
             }
         },

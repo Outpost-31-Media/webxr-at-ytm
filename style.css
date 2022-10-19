@@ -1,3 +1,18 @@
+@font-face {
+    font-family: TheSansB;
+    src: url("./fonts/TheSansB-W5Plain.otf") format("opentype");
+}
+
+@font-face {
+    font-family: TheSansB;
+    font-weight: bold;
+    src: url("./fonts/TheSansB-W6SemiBold.otf") format("opentype");
+}
+@font-face {
+  font-family: "BaseNine";
+  src: url(./fonts/basenine.ttf) format("truetype");
+}
+
 body {
      margin: 0;
      color: #fff;
@@ -109,57 +124,10 @@ body {
      top: 0;
      bottom: 0;
      position: absolute;
-     background: linear-gradient(124deg,#F28705, #042940,#042940,#9FC131);
+     background: rgba(255, 255, 255, 1.0);
      background-size: 400% 400%;
-     -webkit-animation: rainbow 18s ease infinite;
-     -z-animation: rainbow 18s ease infinite;
-     -o-animation: rainbow 18s ease infinite;
-     animation: rainbow 18s ease infinite;
 }
- @-webkit-keyframes rainbow {
-     0% {
-         background-position: 0% 82% 
-    }
-     50% {
-         background-position: 100% 19% 
-    }
-     100% {
-         background-position: 0% 82% 
-    }
-}
- @-moz-keyframes rainbow {
-     0% {
-         background-position: 0% 82% 
-    }
-     50% {
-         background-position: 100% 19% 
-    }
-     100% {
-         background-position: 0% 82% 
-    }
-}
- @-o-keyframes rainbow {
-     0% {
-         background-position: 0% 82% 
-    }
-     50% {
-         background-position: 100% 19% 
-    }
-     100% {
-         background-position: 0% 82% 
-    }
-}
- @keyframes rainbow {
-     0% {
-         background-position: 0% 82% 
-    }
-     50% {
-         background-position: 100% 19% 
-    }
-     100% {
-         background-position: 0% 82% 
-    }
-}
+
  button {
     /* Makes the text unzoomable and unselectable */
      position: fixed;
@@ -270,7 +238,7 @@ body {
      left: 10%;
      width: 80%;
      background-color: grey;
-     border: 1px solid rgb(255, 255, 255);
+     border: 1px solid rgba(246, 128, 38, 1);
      border-radius: 4px;
      background: rgba(0, 0, 0, 0.1);
      z-index: 999;
@@ -279,10 +247,11 @@ body {
      display: none;
      width: 1%;
      height: 30px;
-     background-color: white;
+     background-color: rgba(246, 128, 38, 1);
      z-index: 998;
      text-align: center;
-     color: black;
+     color: white;
+     font-family: BaseNine;
 }
  div {
     /* Makes the text unzoomable and unselectable */
@@ -362,4 +331,55 @@ body {
      -ms-user-select: none;
      user-select: none;
      -webkit-transform:rotate(270deg);
+}
+
+.gui-button.ytm {
+    font-family: BaseNine;
+    border: .1px solid rgba(246, 128, 38, 1);
+    border-radius: 30px;
+    background: rgba(246, 128, 38, 1);
+    color: rgb(255, 255, 255);
+    opacity: 1;
+}
+
+.overlayText.ytm {
+    font-family: TheSansB;
+    color: black;
+    opacity: 1;
+}
+
+.overlayText.ytmHead {
+    font-family: BaseNine;
+    color: black;
+    opacity: 1;
+}
+
+.ytmLogo {
+  display: block;
+  margin-left: auto;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+  margin-right: auto;
+  width: 50%;
+}
+
+/* unvisited link */
+a:link {
+  color: rgba(246, 128, 38, 1);
+}
+
+/* visited link */
+a:visited {
+  color: rgba(246, 128, 38, 1);
+}
+
+.ytmStartButton {
+    font-family: BaseNine !important;
+    border: .1px solid rgba(246, 128, 38, 1) !important;
+    border-radius: 30px !important;
+    background: rgba(246, 128, 38, 1) !important;
+    color: rgb(255, 255, 255) !important;
+    opacity: 1 !important;
+    padding-top: 6px !important;
+    padding-bottom: 6px !important;
 }

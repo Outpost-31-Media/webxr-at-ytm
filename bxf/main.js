@@ -145,6 +145,7 @@ async function init() {
 
     arButton.addEventListener("click", () => {
       if (!xrSessionStarted) {
+        arButton.classList.remove("ytmStartButton");
         document.getElementById("welcome").style.display = 'none';
         document.getElementById("instructions").textContent = "Find an open area. Look around the room to calibrate the space.";
         xrSessionStarted = true;
@@ -473,6 +474,7 @@ function loadModel() {
                 document.querySelector("#myBar").style.display = "none";
                 document.querySelector("#myProgress").style.display = "none";
                 document.body.appendChild(arButton);
+                arButton.classList.add("ytmStartButton");
 
             }
         },
