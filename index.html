@@ -5,21 +5,24 @@
 		<title>XR@YTM</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
 		<link type="text/css" rel="stylesheet" href="style.css">
-
 	</head>
 	<body>
 		<div id="welcome" class="wrapper">
 			<div id="infoBlock">
-			<a href="https://goytm.ca/">
-  				<img class="ytmLogo" src="./img/ytmlogo.png" alt="YTM">
-			</a> 
-			<h1 class="overlayText ytmHead">Virtual Museum</h1>
-			<p class="overlayText ytm" style="overflow: auto;">Welcome to the Virtual Yukon Transportation Museum Click an experience below to get started. <br> Please note theese experiences will only work on Chrome for Android or <a href="https://apps.apple.com/ca/app/webxr-viewer/id1295998056" target="_blank">Mozilla WebXR Viewer</a> from the iOS App Store. <br> Full compatability list availible <a href="https://immersiveweb.dev/#supporttable" target="_blank">here</a></p>
+				<a href="https://goytm.ca/">
+					<img class="ytmLogo" src="./img/Logo-Vector.png" alt="YTM">
+				</a>
+				<h1 class="overlayText ytmHead">YTM <strong id="stingText">VIRTUAL</strong> MUSEUM</h1>
+				<div id="orange"></div>
+				<p class="overlayText ytm" id="ytm_subhead"style="overflow: auto;">Welcome to the <strong id="stingText">virtual Yukon Transportation Museum! </strong>Click an experience below to get started.</p>
+				<br>
+				<p class="overlayText ytm" style="overflow: auto;"> Please note theese experiences will only work on Chrome for Android or <a href="https://apps.apple.com/ca/app/webxr-viewer/id1295998056" target="_blank">Mozilla WebXR Viewer</a> from the iOS App Store. <br> Full compatability list availible <a href="https://immersiveweb.dev/#supporttable" target="_blank">here</a></p>
+				<img id="phoneIcon"src="./img/Phone-icon.png">
 			</div>
 			<div id="lodButtons">
-			<button class='gui-button ytm' id="ultra" onclick="location.href='./landtrain/'">LeTourneau LCC-1 Landtrain</button>
-			<button class='gui-button ytm' id="high" onclick="location.href='./bxf/'">BXF Flight</button>
-			<button class='gui-button ytm' id="low" onclick="location.href='./goddard/'">A.J. Goddard</button>
+				<button class='gui-button ytm' id="ultra" onclick="location.href='./landtrain/'">LeTourneau LCC-1 Sno-Train</button>
+				<button class='gui-button ytm' id="high" onclick="location.href='./bxf/'">CF-BXF Flight</button>
+				<button class='gui-button ytm' id="low" onclick="location.href='./goddard/'">A.J. Goddard Shipwreck</button>
 			</div>
 		</div>
 	</body>

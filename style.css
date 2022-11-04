@@ -124,8 +124,10 @@ body {
      top: 0;
      bottom: 0;
      position: absolute;
-     background: rgba(255, 255, 255, 1.0);
-     background-size: 400% 400%;
+     background-image: url("./img/Background.png");
+/*     background-size: contain;*/
+     background-size: 100%;
+/*     background-repeat: no-repeat;*/
 }
 
  button {
@@ -151,9 +153,10 @@ body {
      background-color: rgb(212, 212, 212);
 }
  #ultra {
-     bottom: 11vh;
-     margin: 5%;
-     width: 90%;
+     bottom: 13vh;
+     margin-left: 20%;
+     margin-right: 20%;
+     width: 60%;
     /*left: 37.5%;
     */
      display: block;
@@ -162,9 +165,10 @@ body {
     */
 }
  #high {
-     bottom: 6vh;
-     margin: 5%;
-     width: 90%;
+     bottom: 8vh;
+     margin-left: 20%;
+     margin-right: 20%;
+     width: 60%;
     /*left: 37.5%;
     */
      display: block;
@@ -173,11 +177,10 @@ body {
     */
 }
  #low {
-     bottom: 1vh;
-     margin: 5%;
-     width: 90%;
-    /*left: 37.5%;
-    */
+     bottom: 3vh;
+     margin-left: 20%;
+     margin-right: 20%;
+     width: 60%;
      display: block;
      user-select: none;
     /*font-size: 50px;
@@ -344,23 +347,24 @@ body {
 
 .overlayText.ytm {
     font-family: TheSansB;
-    color: black;
+    color: #64300a;
     opacity: 1;
 }
 
 .overlayText.ytmHead {
-    font-family: BaseNine;
-    color: black;
+    font-family: TheSansB;
+    color: #64300a;
     opacity: 1;
+    margin-top: 0;
+      margin-bottom: 4vh;
 }
 
 .ytmLogo {
   display: block;
   margin-left: auto;
   margin-top: 2vh;
-  margin-bottom: 2vh;
   margin-right: auto;
-  width: 50%;
+  width: 30%;
 }
 
 /* unvisited link */
@@ -382,4 +386,34 @@ a:visited {
     opacity: 1 !important;
     padding-top: 6px !important;
     padding-bottom: 6px !important;
+}
+
+#ytm_subhead {
+    background: white;
+    width: 100%;
+    padding-top: 1vh;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-bottom: 1vh;
+    margin-top: .5vh;
+    font-size: 15pt;
+}
+#stingText{
+    color: rgba(246, 128, 38, 1);
+}
+#orange {
+    position: absolute;
+    height: 1vh;
+    width: 10%;
+    left: 45%;
+    right: 45%;
+    padding-bottom: 0;
+    margin-bottom: 0;
+    background-color: rgba(246, 128, 38, 1);
+}
+
+#phoneIcon {
+    position: relative;
+    left :60%;
+    width: 30%;
 }
