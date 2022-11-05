@@ -124,7 +124,7 @@ body {
      top: 0;
      bottom: 0;
      position: absolute;
-     background-image: url("./img/Background.png");
+     background: rgb(255, 244, 226);
 /*     background-size: contain;*/
      background-size: 100%;
 /*     background-repeat: no-repeat;*/
@@ -416,4 +416,27 @@ a:visited {
     position: relative;
     left :60%;
     width: 30%;
+}
+
+#lineBackground {
+    background-image: url(./img/Line-background.png);
+    background-size: 100%;
+     background-repeat: no-repeat;
+
+    width:  100%;
+}
+#lineBackgroundCongrats {
+        background-image: url(./img/Line-background.png);
+    background-size: 100%;
+     background-repeat: no-repeat;
+     background-position: bottom;
+    width:  100%;
+}
+.thumbnail {
+    display: block;
+  margin-left: auto;
+  margin-top: auto;
+  padding-bottom: 3vh;
+  margin-right: auto;
+  width: 70%;
 }
