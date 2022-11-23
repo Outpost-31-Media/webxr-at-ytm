@@ -236,7 +236,7 @@ async function loadModels(lod) {
             ship = gltf.scene;
             ship.visible = false;
             if (polyLevel == 0) {
-                ship.scale.set(0.5, 0.5, 0.5);
+                ship.scale.set(0.03, 0.03, 0.03);
             };
             gltfShip = gltf;
             scene.add(ship);
