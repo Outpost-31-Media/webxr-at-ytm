@@ -23,8 +23,13 @@ let plane;
 let gltfShip;
 let shipMixer;
 let shipAnimKeys;
+let causticsSpotLight;
 let shipAnims =[];
+let causticsTex
 let clock = new THREE.Clock();
+
+let causticsTargetA, causticsTargetB;
+let causticScene;
 
 let xrSessionStarted = false;
 
@@ -47,6 +52,8 @@ function init() {
     document.body.appendChild(container);
 
     scene = new THREE.Scene();
+    causticScene = new THREE.Scene();
+    scene.add(causticScene);
 
     camera = new THREE.PerspectiveCamera(70, window.innerWidth / window.innerHeight, 0.01, 40);
 
@@ -73,12 +80,22 @@ function init() {
     light.position.set(0.5, 1, 0.25);
     scene.add(light);
 
-    spotLight = new THREE.SpotLight(0xffa95c, 20);
+    spotLight = new THREE.SpotLight(0xffa95c, 10);
     spotLight.castShadow = true;
     spotLight.shadow.bias = -0.0001;
     spotLight.shadow.mapSize.width = 1024 * 4;
     spotLight.shadow.mapSize.height = 1024 * 4;
     scene.add(spotLight);
+
+    causticsTex = new THREE.TextureLoader().load("./img/caustics.jpg");
+
+    causticsSpotLight = new THREE.SpotLight(0xffa95c, 0);
+    causticsSpotLight.castShadow = true;
+    causticsSpotLight.shadow.bias = -0.0001;
+    causticsSpotLight.shadow.mapSize.width = 1024 * 4;
+    causticsSpotLight.shadow.mapSize.height = 1024 * 4;
+    causticsSpotLight.map = causticsTex;
+    causticScene.add(causticsSpotLight);
 
     controller = renderer.xr.getController(0);
     controller.addEventListener('select', onSelect);
@@ -94,9 +111,7 @@ function init() {
     document.querySelector("#high").addEventListener("click", () => {
         lodSelection(1);
     });
-    document.querySelector("#low").addEventListener("click", () => {
-        lodSelection(2);
-    });
+
     document.querySelector("#left").addEventListener('beforexrselect', ev => ev.preventDefault());
     document.querySelector("#right").addEventListener('beforexrselect', ev => ev.preventDefault());
 
@@ -161,7 +176,6 @@ function init() {
 
 function lodSelection(lod) {
     document.querySelector("#high").style.display = "none";
-    document.querySelector("#low").style.display = "none";
     document.querySelector("#ultra").style.display = "none";
 
     loadModels(lod);
@@ -206,8 +220,14 @@ async function loadModels(lod) {
             // reticle.matrixAutoUpdate = false; //stops 3js from moving the reticle
             reticle.visible = false;
             if (polyLevel == 0) {
-                reticle.scale.set(0.5, 0.5, 0.5);
+                reticle.scale.set(3, 3, 3);
             };
+            if (polyLevel == 1) {
+                reticle.scale.set(6, 6, 6);
+            };
+            console.log(reticle)
+            reticle.children[0].material.transparent = true;
+            reticle.children[0].material.opacity = 0.7; 
             scene.add(reticle);
         },
         function(xhr) {
@@ -236,6 +256,11 @@ async function loadModels(lod) {
             ship = gltf.scene;
             ship.visible = false;
             if (polyLevel == 0) {
+                console.log('polylevel0')
+                ship.scale.set(0.015, 0.015, 0.015);
+            };
+            if (polyLevel == 1) {
+                console.log('polylevel1')
                 ship.scale.set(0.03, 0.03, 0.03);
             };
             gltfShip = gltf;
@@ -287,8 +312,15 @@ function onSelect() {
         ship.position.setFromMatrixPosition(reticle.matrix);
         ship.quaternion.setFromRotationMatrix(reticle.matrix);
         plane.position.setFromMatrixPosition(reticle.matrix);
-        spotLight.position.set( plane.position.x+5, 20, plane.position.y+5 );
+        spotLight.position.set( plane.position.x, 20, plane.position.y );
         spotLight.lookAt(ship);
+
+        causticScene.position.setFromMatrixPosition(ship.matrix);
+        causticsSpotLight.position.setFromMatrixPosition(spotLight.matrix);
+        causticsSpotLight.quaternion.setFromRotationMatrix(spotLight.matrix);
+        causticsSpotLight.intensity = 35;
+        causticsSpotLight.translateY(-10);
+        ship.translateY(-.1);
         spawned = true;
     }
 }
@@ -369,6 +401,9 @@ function render(timestamp, frame) {
         if (shipMixer) {
             shipMixer.update(deltaTime);
         }
+
+        causticScene.rotation.y += .02;
+
         renderer.render(scene, camera);
     }
 }
