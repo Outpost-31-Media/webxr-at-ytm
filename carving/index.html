@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Landtrain V1</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+		<link type="text/css" rel="stylesheet" href="../style.css">
+		<script src="../lib/three.min.js"></script>
+		<script src="../lib/DRACOLoader.js"></script>
+		<script src="../lib/GLTFLoader.js"></script>
+	</head>
+	<body>
+		<div id="welcome" class="wrapper">
+			<div id="infoBlock">
+				<a href="https://goytm.ca/">
+					<img class="ytmLogo" src="../img/Logo-Vector.png" alt="YTM">
+				</a>
+				<h1 class="overlayText ytmHead">YTM <strong id="stingText">VIRTUAL</strong> MUSEUM</h1>
+				<div id="orange"></div>
+				<p class="overlayText ytm" id="ytm_subhead"style="overflow: auto;">LeTourneau LCC-1 Sno-Train</p>
+				<br>
+				<p class="overlayText ytm" style="overflow: auto;"> This is a full-size model, so find a large, open area in which to view it! If you're in tight quarters, click 'Desktop Scale.<br><br>After starting the experience, look around with your phone to help the program get a feel for your surroundings. You'll see a grid appear on the ground -- once you're happy with its placement, simply tap your screen to make the Sno-Train appear.</p>
+				<div id="myProgress">
+					<div id="myBar">
+					</div>
+				</div>
+			</div>
+			<div id="lodButtons">
+				<button class='gui-button ytm' id="ultra">Desktop Scale 20MB</button>
+				<button class='gui-button ytm' id="high" style="display: none;">Regular Detail Full Scale 20MB</button>
+				<button class='gui-button ytm' id="low" style="display: none;">Low Detail Full Scale 5MB</button>
+			</div>
+		</div>
+		<div id="overlay"></div>
+		<button class='gui-button' id="left">Rotate Left</button>
+		<button class='gui-button' id="right">Rotate Right</button>
+		<script src="./app.js" type="module"></script>
+	</body>
+</html>
